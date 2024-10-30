@@ -1,5 +1,3 @@
-// models/user.go
-
 package models
 
 import "gorm.io/gorm"
@@ -18,5 +16,5 @@ type Product struct {
 	Name     string  `json:"name"`
 	Price    float64 `json:"price"`
 	Quantity int     `json:"quantity"`
-	UserID   uint    `json:"user_id"` // Foreign key to associate with the user
+	UserID   uint    `json:"user_id"`
 }
