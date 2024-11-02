@@ -46,13 +46,10 @@ func CreateOrder(c *gin.Context) {
 
 }
 
-// controllers/order.go
-
 func GetOrders(c *gin.Context) {
 	var orders []models.Order
 	userID, _ := c.Get("userID")
 
-	// Use Preload to load associated Product data
 	if err := database.DB.Where("user_id = ?", userID).Preload("Product").Find(&orders).Error; err != nil {
 		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to retrieve orders"})
 		return

@@ -1,5 +1,3 @@
-// routes/routes.go
-
 package routes
 
 import (
@@ -22,9 +20,9 @@ func SetupRoutes(router *gin.Engine) {
 	}
 
 	orderGroup := router.Group("/orders")
-	orderGroup.Use(middlewares.JWTMiddleware()) // JWT middleware for protection
+	orderGroup.Use(middlewares.JWTMiddleware())
 	{
-		orderGroup.POST("/", controllers.CreateOrder) // Endpoint to create an order
-		orderGroup.GET("/", controllers.GetOrders)    // Endpoint to get orders for a user
+		orderGroup.POST("/", controllers.CreateOrder)
+		orderGroup.GET("/", controllers.GetOrders)
 	}
 }

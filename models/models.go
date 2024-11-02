@@ -26,9 +26,9 @@ type Product struct {
 type Order struct {
 	gorm.Model
 	ID         uint      `gorm:"primaryKey"`
-	UserID     uint      `json:"user_id"`              // Foreign key to the User model
-	ProductID  uint      `json:"product_id"`           // Foreign key ID for Product
-	Product    Product   `gorm:"foreignKey:ProductID"` // Automatically populated based on ProductID
+	UserID     uint      `json:"user_id"`
+	ProductID  uint      `json:"product_id"`
+	Product    Product   `gorm:"foreignKey:ProductID"`
 	Quantity   int       `json:"quantity"`
 	TotalPrice float64   `json:"total_price"`
 	CreatedAt  time.Time `json:"created_at"`
