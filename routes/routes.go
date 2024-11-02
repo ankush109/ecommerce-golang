@@ -21,4 +21,10 @@ func SetupRoutes(router *gin.Engine) {
 
 	}
 
+	orderGroup := router.Group("/orders")
+	orderGroup.Use(middlewares.JWTMiddleware()) // JWT middleware for protection
+	{
+		orderGroup.POST("/", controllers.CreateOrder) // Endpoint to create an order
+		orderGroup.GET("/", controllers.GetOrders)    // Endpoint to get orders for a user
+	}
 }

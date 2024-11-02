@@ -18,6 +18,7 @@ func main() {
 	// Run migrations to create tables based on models
 	database.DB.AutoMigrate(&models.User{})
 	database.DB.AutoMigrate(&models.Product{})
+	database.DB.AutoMigrate(&models.Order{})
 
 	// Connect to the database
 	database.ConnectDatabase()
